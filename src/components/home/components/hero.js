@@ -68,6 +68,9 @@ export default function Hero({ navbarHeight }) {
       justify-content: center;
       padding: 0rem 10rem;
       @media (max-width: ${BREAKPOINTS.phablet}){
+        padding: 0rem 2.5rem;
+      }
+      @media (max-width: ${BREAKPOINTS.smallMobile}){
         padding: 0;
       }
       overflow: hidden;
@@ -102,7 +105,7 @@ export default function Hero({ navbarHeight }) {
         justify-content: center;
         padding: 10rem;
         @media (max-screen: ${BREAKPOINTS.phablet}){
-          padding: 0rem 2.5rem;
+          padding: 0rem;
         }
         background: ${COLORS.primary};
         z-index: 1;
