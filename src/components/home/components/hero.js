@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
-import hero from "../../../assets/Devin3.jpg";
+import hero from "../../../assets/software.jpg";
+import profile from "../../../assets/Devin3.jpg";
 import { COLORS, TECH, BREAKPOINTS } from "../../constants";
 
 function TypeWriter({}) {
@@ -135,13 +136,12 @@ export default function Hero({ navbarHeight }) {
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position-y: 25%;
         width: 100%;
         height: 100%;
         z-index: 0;
         top: 0rem;
         left: 0rem;
-        filter: blur(4rem);
+        filter: blur(0.25rem);
         &::before {
           content: "";
           position: absolute;
@@ -156,10 +156,11 @@ export default function Hero({ navbarHeight }) {
         align-items: center;
         justify-content: center;
         padding: 10rem;
+        padding-top: 2rem;
         @media (max-width: ${BREAKPOINTS.phablet}) {
           padding: 5rem 1%;
         }
-        background: ${COLORS.primary};
+        background: rgba(0, 0, 0, 0.875);
         z-index: 1;
         border-radius: 1.5rem;
         box-shadow: 0.25rem 0.25rem 1rem 0rem black;
@@ -173,11 +174,16 @@ export default function Hero({ navbarHeight }) {
           text-align: center;
           color: ${COLORS.color3};
         }
-        .writer-container{
+        .writer-container {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+        img{
+          width: 25rem;
+          height: 25rem;
+          border-radius: 50%;
         }
       }
     }
@@ -188,6 +194,7 @@ export default function Hero({ navbarHeight }) {
       <section className="about-me">
         <div className="about-img" />
         <div className="card">
+          <img src={profile} />
           <p>Full Stack Web Developer with experience in...</p>
           <div className="writer-container">
             <TypeWriter />
