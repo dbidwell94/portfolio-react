@@ -10,6 +10,8 @@ function TypeWriter({}) {
   });
 
   const currentTech = TECH[Object.keys(TECH)[keyFrameworkIndex.key]];
+  const frameworkNameLength =
+    currentTech.frameworks[keyFrameworkIndex.framework].length;
 
   function setCurrentFramework() {
     setTimeout(() => {
@@ -28,7 +30,7 @@ function TypeWriter({}) {
           framework: keyFrameworkIndex.framework + 1,
         });
       }
-    }, 2000);
+    }, 1500);
   }
 
   const cursorAnimation = keyframes`
@@ -54,30 +56,35 @@ function TypeWriter({}) {
     color: ${COLORS.color3};
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
     font-size: 1.25rem;
-    width: min-content;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     p {
-      animation: ${typingAnimation}
-          ${currentTech.frameworks[keyFrameworkIndex.framework].length * 0.14}s
-          steps(
-            ${currentTech.frameworks[keyFrameworkIndex.framework].length},
-            end
-          ),
+      animation: ${typingAnimation} ${frameworkNameLength * 0.1}s
+          steps(${frameworkNameLength}, end),
         ${cursorAnimation} 0.75s step-end infinite;
       margin: 0 auto;
       overflow: hidden;
+      width: min-content;
+      text-align: left;
     }
   `;
 
   return (
-    <Writer>
+    <React.Fragment>
       <div className="writer-title">
         <h2>{currentTech.name}</h2>
       </div>
-      <p onAnimationEnd={(e) => setCurrentFramework()}>
-        {currentTech.frameworks[keyFrameworkIndex.framework]}
-      </p>
-    </Writer>
+      <Writer>
+        <p onAnimationEnd={(e) => setCurrentFramework()}>
+          {currentTech.frameworks[keyFrameworkIndex.framework]}
+        </p>
+      </Writer>
+    </React.Fragment>
   );
 }
 
@@ -89,12 +96,22 @@ export default function Hero({ navbarHeight }) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 100%;
     height: calc(100vh - ${navbarHeight}rem);
     @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}) {
       height: 100vh;
     }
     color: ${COLORS.secondary};
+    .writer-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: ${COLORS.color3};
+      width: min-content;
+      margin-top: 1.5rem;
+    }
     .about-me {
       width: 100%;
       display: flex;
@@ -147,15 +164,6 @@ export default function Hero({ navbarHeight }) {
         border-radius: 1.5rem;
         box-shadow: 0.25rem 0.25rem 1rem 0rem black;
         position: relative;
-        .writer-title {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          color: ${COLORS.color3};
-          width: 100%;
-          margin-top: 1.5rem;
-        }
         p {
           font-size: 1.75rem;
           @media (max-width: ${BREAKPOINTS.phablet}) {
@@ -164,6 +172,12 @@ export default function Hero({ navbarHeight }) {
           }
           text-align: center;
           color: ${COLORS.color3};
+        }
+        .writer-container{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
         }
       }
     }
@@ -175,7 +189,9 @@ export default function Hero({ navbarHeight }) {
         <div className="about-img" />
         <div className="card">
           <p>Full Stack Web Developer with experience in...</p>
-          <TypeWriter />
+          <div className="writer-container">
+            <TypeWriter />
+          </div>
         </div>
       </section>
     </Container>
