@@ -67,10 +67,11 @@ export default function Hero({ navbarHeight }) {
       align-items: center;
       justify-content: center;
       padding: 0rem 10rem;
-      @media (max-width: ${BREAKPOINTS.phablet}){
+      word-wrap: break-word;
+      @media (max-width: ${BREAKPOINTS.phablet}) {
         padding: 0rem 2.5rem;
       }
-      @media (max-width: ${BREAKPOINTS.smallMobile}){
+      @media (max-width: ${BREAKPOINTS.smallMobile}) {
         padding: 0;
       }
       overflow: hidden;
@@ -104,8 +105,8 @@ export default function Hero({ navbarHeight }) {
         align-items: center;
         justify-content: center;
         padding: 10rem;
-        @media (max-screen: ${BREAKPOINTS.phablet}){
-          padding: 0rem;
+        @media (max-width: ${BREAKPOINTS.phablet}) {
+          padding: 5rem 0rem;
         }
         background: ${COLORS.primary};
         z-index: 1;
@@ -142,13 +143,16 @@ export default function Hero({ navbarHeight }) {
             overflow: hidden;
           }
         }
-      }
-      p {
-        font-size: 1.75rem;
-        margin-left: 2rem;
-        max-width: 25rem;
-        text-align: center;
-        color: ${COLORS.color3};
+        p {
+          font-size: 1.75rem;
+          /* max-width: 25rem; */
+          @media (max-width: ${BREAKPOINTS.phablet}) {
+            margin: 0;
+            width: 100%;
+          }
+          text-align: center;
+          color: ${COLORS.color3};
+        }
       }
     }
   `;
