@@ -4,26 +4,6 @@ import { COLORS, BREAKPOINTS } from "../constants";
 import { Link } from "react-router-dom";
 
 export default function Navbar({ height, setHeight }) {
-  const nameAnimation = keyframes`
-        0%{
-            width: 0rem;
-            opacity: 0;
-            animation-timing-function: linear;
-        }
-        25%{
-            width: 5rem;
-            transform: rotate(0deg);
-            opacity: .5;
-            animation-timing-function: ease-in-out;
-        }
-        100%{
-            width: 0rem;
-            transform: rotate(360deg);
-            opacity: 0;
-            animation-timing-function: linear;
-        }
-    `;
-
   const Container = styled.nav`
     display: flex;
     flex-direction: row;
@@ -61,13 +41,6 @@ export default function Navbar({ height, setHeight }) {
           font-size: 5rem;
           font-family: "Dancing Script", cursive;
         }
-        &::after {
-          margin-left: 1rem;
-          content: "";
-          height: 0rem;
-          border: 0.0625rem solid ${COLORS.primary};
-          animation: ${nameAnimation} 3s infinite;
-        }
       }
       .hamburger {
         display: none;
@@ -96,7 +69,7 @@ export default function Navbar({ height, setHeight }) {
           }
         }
         .line1 {
-            top: 25%;
+          top: 25%;
           &.opened {
             transform: rotate(-45deg);
             top: 50%;
