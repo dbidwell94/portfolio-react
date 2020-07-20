@@ -31,6 +31,7 @@ export const TECH = {
       "SQL Server",
       "Postgress",
       "MySQL",
+      "Sqlite3",
       "Google Firebase",
       "MongoDB",
     ],

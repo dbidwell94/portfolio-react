@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import hero from "../../../assets/Devin3.jpg";
 import { COLORS, TECH, BREAKPOINTS } from "../../constants";
 
-export default function Hero({ navbarHeight }) {
+function TypeWriter({}) {
   const [keyFrameworkIndex, setKeyFrameworkIndex] = useState({
     key: 0,
     framework: 0,
   });
 
-  let currentTech = TECH[Object.keys(TECH)[keyFrameworkIndex.key]];
+  const currentTech = TECH[Object.keys(TECH)[keyFrameworkIndex.key]];
 
   function setCurrentFramework() {
-    let newTech = null;
     setTimeout(() => {
       if (keyFrameworkIndex.framework + 1 > currentTech.frameworks.length - 1) {
         if (keyFrameworkIndex.key + 1 > Object.keys(TECH).length - 1) {
@@ -32,8 +31,6 @@ export default function Hero({ navbarHeight }) {
     }, 2000);
   }
 
-  const imageSize = "25rem";
-
   const cursorAnimation = keyframes`
     from, to{
       border-right: .25rem solid black;
@@ -52,6 +49,41 @@ export default function Hero({ navbarHeight }) {
     }
   `;
 
+  const Writer = styled.div`
+    padding-right: 0.1rem;
+    color: ${COLORS.color3};
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.25rem;
+    width: min-content;
+    p {
+      animation: ${typingAnimation}
+          ${currentTech.frameworks[keyFrameworkIndex.framework].length * 0.14}s
+          steps(
+            ${currentTech.frameworks[keyFrameworkIndex.framework].length + 1},
+            end
+          ),
+        ${cursorAnimation} 0.75s step-end infinite;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+  `;
+
+  return (
+    <Writer>
+      <div className="writer-title">
+        <h2>{currentTech.name}</h2>
+      </div>
+      <p onAnimationEnd={(e) => setCurrentFramework()}>
+        {currentTech.frameworks[keyFrameworkIndex.framework]}
+      </p>
+    </Writer>
+  );
+}
+
+export default function Hero({ navbarHeight }) {
+  const imageSize = "25rem";
+
   const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -59,7 +91,7 @@ export default function Hero({ navbarHeight }) {
     align-items: center;
     width: 100%;
     height: calc(100vh - ${navbarHeight}rem);
-    @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}){
+    @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}) {
       height: 100vh;
     }
     color: ${COLORS.secondary};
@@ -124,30 +156,8 @@ export default function Hero({ navbarHeight }) {
           width: 100%;
           margin-top: 1.5rem;
         }
-        .typewriter {
-          padding-right: 0.1rem;
-          color: ${COLORS.color3};
-          white-space: nowrap;
-          overflow: hidden;
-          font-size: 1.25rem;
-          width: min-content;
-          p {
-            animation: ${typingAnimation}
-                ${currentTech.frameworks[keyFrameworkIndex.framework].length *
-                0.14}s
-                steps(
-                  ${currentTech.frameworks[keyFrameworkIndex.framework].length +
-                  1},
-                  end
-                ),
-              ${cursorAnimation} 0.75s step-end infinite;
-            margin: 0 auto;
-            overflow: hidden;
-          }
-        }
         p {
           font-size: 1.75rem;
-          /* max-width: 25rem; */
           @media (max-width: ${BREAKPOINTS.phablet}) {
             margin: 0;
             width: 100%;
@@ -165,14 +175,7 @@ export default function Hero({ navbarHeight }) {
         <div className="about-img" />
         <div className="card">
           <p>Full Stack Web Developer with experience in...</p>
-          <div className="writer-title">
-            <h2>{currentTech.name}</h2>
-          </div>
-          <div className="typewriter">
-            <p onAnimationEnd={(e) => setCurrentFramework()}>
-              {currentTech.frameworks[keyFrameworkIndex.framework]}
-            </p>
-          </div>
+          <TypeWriter />
         </div>
       </section>
     </Container>
