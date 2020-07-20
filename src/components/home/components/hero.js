@@ -60,7 +60,7 @@ function TypeWriter({}) {
       animation: ${typingAnimation}
           ${currentTech.frameworks[keyFrameworkIndex.framework].length * 0.14}s
           steps(
-            ${currentTech.frameworks[keyFrameworkIndex.framework].length + 1},
+            ${currentTech.frameworks[keyFrameworkIndex.framework].length},
             end
           ),
         ${cursorAnimation} 0.75s step-end infinite;
