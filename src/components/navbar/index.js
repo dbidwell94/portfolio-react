@@ -10,6 +10,9 @@ export default function Navbar({ height, setHeight }) {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}){
+      position: unset;
+    }
     top: 0;
     width: 100%;
     height: ${height ? height : 8}rem;

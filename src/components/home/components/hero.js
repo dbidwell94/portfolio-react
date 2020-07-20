@@ -59,6 +59,9 @@ export default function Hero({ navbarHeight }) {
     align-items: center;
     width: 100%;
     height: calc(100vh - ${navbarHeight}rem);
+    @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}){
+      height: 100vh;
+    }
     color: ${COLORS.secondary};
     .about-me {
       width: 100%;
