@@ -92,7 +92,6 @@ export default function Hero({ navbarHeight }) {
         z-index: 0;
         top: 0rem;
         left: 0rem;
-        transform: scale(1.125);
         filter: blur(4rem);
         &::before {
           content: "";
