@@ -101,6 +101,9 @@ export default function Hero({ navbarHeight }) {
         align-items: center;
         justify-content: center;
         padding: 10rem;
+        @media (max-screen: ${BREAKPOINTS.phablet}){
+          padding: 0rem 2.5rem;
+        }
         background: ${COLORS.primary};
         z-index: 1;
         border-radius: 1.5rem;
