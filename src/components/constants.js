@@ -11,3 +11,28 @@ export const BREAKPOINTS = {
   mobile: "800px",
   phablet: "1000px",
 };
+
+export const TECH = {
+  cSharp: {
+    name: "C#",
+    frameworks: ["Unity3D", ".NET Framework", ".NET Core", "ASP.NET"],
+  },
+  python: {
+    name: "Python",
+    frameworks: ["Django", "Django-Rest-Framework", "Pipenv"],
+  },
+  javaScript: {
+    name: "JavaScript",
+    frameworks: ["React.js", "ES6", "Redux", "Express.js"],
+  },
+  databases: {
+    name: "Databases",
+    frameworks: [
+      "SQL Server",
+      "Postgress",
+      "MySQL",
+      "Google Firebase",
+      "MongoDB",
+    ],
+  },
+};
