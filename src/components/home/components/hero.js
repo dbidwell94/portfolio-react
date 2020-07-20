@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import hero from "../../../assets/Devin3.jpg";
-import { COLORS, TECH } from "../../constants";
+import { COLORS, TECH, BREAKPOINTS } from "../../constants";
 
 export default function Hero({ navbarHeight }) {
   const [keyFrameworkIndex, setKeyFrameworkIndex] = useState({
@@ -67,6 +67,9 @@ export default function Hero({ navbarHeight }) {
       align-items: center;
       justify-content: center;
       padding: 0rem 10rem;
+      @media (max-width: ${BREAKPOINTS.phablet}){
+        padding: 0;
+      }
       overflow: hidden;
       height: 100%;
       position: relative;

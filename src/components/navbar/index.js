@@ -39,7 +39,10 @@ export default function Navbar({ height, setHeight }) {
         justify-content: center;
         h1 {
           font-size: 5rem;
-          font-family: "Dancing Script", cursive;
+          font-family: "Roboto Slab", serif;
+          @media (max-width: ${BREAKPOINTS.phablet}){
+            font-size:3.5rem;
+          }
         }
       }
       .hamburger {
@@ -102,7 +105,7 @@ export default function Navbar({ height, setHeight }) {
       text-decoration: none;
       margin-left: 2rem;
       font-size: 2.5rem;
-      font-family: "Satisfy", cursive;
+      font-family: 'Oxygen', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
