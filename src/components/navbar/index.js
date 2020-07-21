@@ -61,6 +61,8 @@ export default function Navbar({ height, setHeight }) {
         position: relative;
         @media (max-width: ${BREAKPOINTS.phablet}) {
           display: flex;
+          margin: 0rem;
+          padding: 0rem;
         }
         .line1,
         .line3 {
@@ -143,6 +145,8 @@ export default function Navbar({ height, setHeight }) {
       }
       @media (max-width: ${BREAKPOINTS.phablet}) {
         margin: 0;
+        border-radius: 0rem;
+        padding: 2rem 0rem;
       }
     }
   `;
