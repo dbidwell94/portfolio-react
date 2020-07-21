@@ -15,15 +15,15 @@ export const BREAKPOINTS = {
 export const TECH = {
   javaScript: {
     name: "JavaScript",
-    frameworks: ["React.js", "Axios.js", "Redux.js", "Express.js", "ES6"],
+    frameworks: ["React.js", "Axios", "Redux.js", "Express.js", "Node.js", "ES6"],
   },
   web: {
     name: "Web-Dev",
-    frameworks: ["HTML5", "CSS3"],
+    frameworks: ["HTML5", "CSS3", "LESS"],
   },
   python: {
     name: "Python",
-    frameworks: ["Django", "Django-Rest-Framework", "Pipenv"],
+    frameworks: ["Django", "Django-Rest-Framework", "Beautiful-Soup","Pipenv"],
   },
   databases: {
     name: "Databases",

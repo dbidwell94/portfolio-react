@@ -64,14 +64,15 @@ function TypeWriter({}) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    p {
-      animation: ${typingAnimation} ${frameworkNameLength * 0.1}s
+    p.writer-text {
+      animation: ${typingAnimation} ${frameworkNameLength * 0.05}s
           steps(${frameworkNameLength}, end),
         ${cursorAnimation} 0.75s step-end infinite;
       margin: 0 auto;
       overflow: hidden;
       width: min-content;
       text-align: left;
+      font-family: "Courier New", Courier, monospace;
     }
   `;
 
@@ -81,7 +82,10 @@ function TypeWriter({}) {
         <h2>{currentTech.name}</h2>
       </div>
       <Writer>
-        <p onAnimationEnd={(e) => setCurrentFramework()}>
+        <p
+          className="writer-text"
+          onAnimationEnd={(e) => setCurrentFramework()}
+        >
           {currentTech.frameworks[keyFrameworkIndex.framework]}
         </p>
       </Writer>
@@ -113,16 +117,17 @@ export default function Hero({ navbarHeight }) {
       width: min-content;
       margin-top: 1.5rem;
       width: 100%;
-      h2{
+      h2 {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        &::before{
-          content: '<title="';
+        font-family: "Courier New", Courier, monospace;
+        &::before {
+          content: '<item title="';
           color: ${COLORS.color4};
         }
-        &::after{
+        &::after {
           content: '" />';
           color: ${COLORS.color4};
         }
@@ -157,7 +162,7 @@ export default function Hero({ navbarHeight }) {
         z-index: 0;
         top: 0rem;
         left: 0rem;
-        filter: blur(.25rem);
+        filter: blur(0.25rem);
         &::before {
           content: "";
           position: absolute;
@@ -198,7 +203,7 @@ export default function Hero({ navbarHeight }) {
           justify-content: center;
           align-items: center;
         }
-        img{
+        img {
           width: 25rem;
           height: 25rem;
           border-radius: 50%;
