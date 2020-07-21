@@ -121,7 +121,7 @@ export default function Navbar({ height, setHeight }) {
       transition: 0.125s ease-in-out all;
       &:hover {
         transform: scale(1.125);
-        box-shadow: 0.75rem 0.75rem 1rem 0rem ${COLORS.primary};
+        box-shadow: 0.25rem 0.25rem .75rem 0rem ${COLORS.primary};
         cursor: pointer;
       }
     }

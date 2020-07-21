@@ -36,7 +36,7 @@ function TypeWriter({}) {
 
   const cursorAnimation = keyframes`
     from, to{
-      border-right: .25rem solid black;
+      border-right: .25rem solid ${COLORS.primary};
     }
     50%{
       border-right: .25rem solid transparent;
@@ -54,7 +54,7 @@ function TypeWriter({}) {
 
   const Writer = styled.div`
     padding-right: 0.1rem;
-    color: ${COLORS.color3};
+    color: ${COLORS.primary};
     white-space: nowrap;
     overflow: hidden;
     text-align: center;
@@ -103,13 +103,13 @@ export default function Hero({ navbarHeight }) {
     @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}) {
       height: 100vh;
     }
-    color: ${COLORS.secondary};
+    color: ${COLORS.primary};
     .writer-title {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: ${COLORS.color3};
+      color: ${COLORS.primary};
       width: min-content;
       margin-top: 1.5rem;
     }
@@ -121,6 +121,7 @@ export default function Hero({ navbarHeight }) {
       justify-content: center;
       padding: 0rem 10rem;
       word-wrap: break-word;
+      background: black;
       @media (max-width: ${BREAKPOINTS.phablet}) {
         padding: 0rem 2.5rem;
       }
@@ -141,13 +142,15 @@ export default function Hero({ navbarHeight }) {
         z-index: 0;
         top: 0rem;
         left: 0rem;
-        filter: blur(0.25rem);
+        filter: blur(.25rem);
         &::before {
           content: "";
           position: absolute;
+          top: 0%;
+          left: 0%;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.375);
+          background: rgba(0, 0, 0, 0.7);
         }
       }
       .card {
@@ -172,7 +175,7 @@ export default function Hero({ navbarHeight }) {
             width: 100%;
           }
           text-align: center;
-          color: ${COLORS.color3};
+          color: ${COLORS.primary};
         }
         .writer-container {
           display: flex;
