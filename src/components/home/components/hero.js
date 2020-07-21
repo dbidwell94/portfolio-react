@@ -141,7 +141,6 @@ export default function Hero({ navbarHeight }) {
       justify-content: center;
       padding: 0rem 10rem;
       word-wrap: break-word;
-      background: black;
       @media (max-width: ${BREAKPOINTS.phablet}) {
         padding: 0rem 2.5rem;
       }
@@ -152,17 +151,20 @@ export default function Hero({ navbarHeight }) {
       height: 100%;
       position: relative;
       .about-img {
-        position: absolute;
+        position: fixed;
         background-image: url(${hero});
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
         width: 100%;
         height: 100%;
-        z-index: 0;
+        z-index: -1;
         top: 0rem;
         left: 0rem;
+        overflow: hidden;
+        transform: scale(1.2);
         filter: blur(0.25rem);
+
         &::before {
           content: "";
           position: absolute;
