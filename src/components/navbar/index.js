@@ -54,8 +54,8 @@ export default function Navbar({ height, setHeight }) {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: ${height / 2}rem;
-        width: ${height / 2}rem;
+        height: ${height / 2.5}rem;
+        width: ${height / 2.5}rem;
         position: relative;
         @media (max-width: ${BREAKPOINTS.phablet}) {
           display: flex;
@@ -108,7 +108,7 @@ export default function Navbar({ height, setHeight }) {
     .nav-link {
       text-decoration: none;
       margin-left: 2rem;
-      font-size: 2.5rem;
+      font-size: 1.75rem;
       font-family: "Oxygen", sans-serif;
       display: flex;
       justify-content: center;

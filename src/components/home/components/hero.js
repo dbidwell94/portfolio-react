@@ -207,6 +207,14 @@ export default function Hero({ navbarHeight }) {
           width: 25rem;
           height: 25rem;
           border-radius: 50%;
+          @media (max-width: ${BREAKPOINTS.phablet}){
+            width: 20rem;
+            height: 20rem;
+          }
+          @media (max-width: ${BREAKPOINTS.phablet}) and (orientation: landscape){
+            width: 15rem;
+            height: 15rem;
+          }
         }
       }
     }
