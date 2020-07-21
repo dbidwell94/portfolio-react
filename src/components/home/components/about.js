@@ -9,6 +9,8 @@ export default function About({navbarHeight}) {
     justify-content: center;
     align-items: center;
     height: calc(100vh - ${navbarHeight}rem);
+    width: 100%;
+    background: white;
   `
 
   return (
