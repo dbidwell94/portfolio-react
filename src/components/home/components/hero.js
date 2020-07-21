@@ -170,7 +170,10 @@ export default function Hero({ navbarHeight }) {
           left: 0%;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.7);
+          background: rgba(0, 0, 0, 0.5);
+          @media (max-width: ${BREAKPOINTS.phablet}) {
+            background: rgba(0, 0, 0, 0.25);
+          }
         }
       }
       .card {
@@ -207,11 +210,11 @@ export default function Hero({ navbarHeight }) {
           width: 25rem;
           height: 25rem;
           border-radius: 50%;
-          @media (max-width: ${BREAKPOINTS.phablet}){
+          @media (max-width: ${BREAKPOINTS.phablet}) {
             width: 20rem;
             height: 20rem;
           }
-          @media (max-width: ${BREAKPOINTS.phablet}) and (orientation: landscape){
+          @media (max-width: ${BREAKPOINTS.phablet}) and (orientation: landscape) {
             width: 15rem;
             height: 15rem;
           }
