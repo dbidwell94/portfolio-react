@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar({ height, setHeight }) {
   const Container = styled.nav`
-    z-index: 1;
+    z-index: 2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -19,7 +19,7 @@ export default function Navbar({ height, setHeight }) {
     height: ${height ? height : 8}rem;
     padding: 0rem 2rem;
     background: ${COLORS.color3};
-    box-shadow: 0rem -.25rem .5rem 0rem ${COLORS.secondary};
+    box-shadow: 0rem -0.25rem 0.5rem 0rem ${COLORS.secondary};
     @media (max-width: ${BREAKPOINTS.phablet}) {
       justify-content: flex-start;
       flex-direction: column;
@@ -149,7 +149,7 @@ export default function Navbar({ height, setHeight }) {
         </div>
       </div>
       <div className="links-container">
-        <a className="nav-link" href="#about">
+        <a className="nav-link" href="/#about">
           About
         </a>
         <Link className="nav-link" to="/projects">
