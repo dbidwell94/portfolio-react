@@ -112,6 +112,21 @@ export default function Hero({ navbarHeight }) {
       color: ${COLORS.primary};
       width: min-content;
       margin-top: 1.5rem;
+      width: 100%;
+      h2{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &::before{
+          content: '<title="';
+          color: ${COLORS.color4};
+        }
+        &::after{
+          content: '" />';
+          color: ${COLORS.color4};
+        }
+      }
     }
     .about-me {
       width: 100%;
@@ -163,7 +178,7 @@ export default function Hero({ navbarHeight }) {
         @media (max-width: ${BREAKPOINTS.phablet}) {
           padding: 5rem 1%;
         }
-        background: rgba(0, 0, 0, 0.875);
+        background: rgba(0, 0, 0, 0.75);
         z-index: 1;
         border-radius: 1.5rem;
         box-shadow: 0.25rem 0.25rem 1rem 0rem black;

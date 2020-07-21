@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 
 export default function Navbar({ height, setHeight }) {
   const Container = styled.nav`
+    z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}){
+    @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}) {
       position: unset;
     }
     top: 0;
@@ -18,7 +19,7 @@ export default function Navbar({ height, setHeight }) {
     height: ${height ? height : 8}rem;
     padding: 0rem 2rem;
     background: ${COLORS.color3};
-    box-shadow: 0rem 0.25rem 1rem 0rem ${COLORS.primary};
+    box-shadow: 0rem -.25rem .5rem 0rem ${COLORS.secondary};
     @media (max-width: ${BREAKPOINTS.phablet}) {
       justify-content: flex-start;
       flex-direction: column;
@@ -43,8 +44,8 @@ export default function Navbar({ height, setHeight }) {
         h1 {
           font-size: 5rem;
           font-family: "Roboto Slab", serif;
-          @media (max-width: ${BREAKPOINTS.phablet}){
-            font-size:3.5rem;
+          @media (max-width: ${BREAKPOINTS.phablet}) {
+            font-size: 3.5rem;
           }
         }
       }
@@ -66,7 +67,7 @@ export default function Navbar({ height, setHeight }) {
           position: absolute;
           top: 75%;
           content: "";
-          border: thin solid black;
+          border: thin solid ${COLORS.primary};
           &.opened {
             transition: 0.25s ease-in-out all;
             transform: rotate(45deg);
@@ -88,7 +89,7 @@ export default function Navbar({ height, setHeight }) {
           width: 80%;
           top: 50%;
           content: "";
-          border: thin solid black;
+          border: thin solid ${COLORS.primary};
           &.opened {
             opacity: 0;
             transition: 0.25s ease-in-out all;
@@ -108,20 +109,20 @@ export default function Navbar({ height, setHeight }) {
       text-decoration: none;
       margin-left: 2rem;
       font-size: 2.5rem;
-      font-family: 'Oxygen', sans-serif;
+      font-family: "Oxygen", sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: row;
       color: ${COLORS.primary};
-      box-shadow: 0.125rem 0.125rem 0.25rem 0rem ${COLORS.primary};
+      box-shadow: 0rem 0rem 0.0625rem 0rem ${COLORS.primary};
       padding: 0.5rem ${(16 / 9) * 0.5}rem;
       border-radius: 0.5rem;
       transform: scale(1);
-      transition: 0.125s ease-in-out all;
+      transition: 0.0625s ease-in-out all;
       &:hover {
         transform: scale(1.125);
-        box-shadow: 0.25rem 0.25rem .75rem 0rem ${COLORS.primary};
+        box-shadow: 0rem 0rem 0.25rem 0rem ${COLORS.primary};
         cursor: pointer;
       }
     }

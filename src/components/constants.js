@@ -1,7 +1,7 @@
 export const COLORS = {
   primary: "white",
   secondary: "#22223B",
-  color3: "#1C1A13",
+  color3: "#0F0D09",
   color4: "#FF9233",
   color5: "#FCF1ED",
 };
@@ -13,27 +13,31 @@ export const BREAKPOINTS = {
 };
 
 export const TECH = {
-  cSharp: {
-    name: "C#",
-    frameworks: ["Unity3D", ".NET Framework", ".NET Core", "ASP.NET"],
+  javaScript: {
+    name: "JavaScript",
+    frameworks: ["React.js", "Axios.js", "Redux.js", "Express.js", "ES6"],
+  },
+  web: {
+    name: "Web-Dev",
+    frameworks: ["HTML5", "CSS3"],
   },
   python: {
     name: "Python",
     frameworks: ["Django", "Django-Rest-Framework", "Pipenv"],
   },
-  javaScript: {
-    name: "JavaScript",
-    frameworks: ["React.js", "ES6", "Redux", "Express.js"],
-  },
   databases: {
     name: "Databases",
     frameworks: [
       "SQL Server",
-      "Postgress",
+      "PostgresSQL",
       "MySQL",
       "Sqlite3",
       "Google Firebase",
       "MongoDB",
     ],
+  },
+  cSharp: {
+    name: "C#",
+    frameworks: ["Unity3D", ".NET Framework", ".NET Core", "ASP.NET"],
   },
 };
