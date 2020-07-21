@@ -4,6 +4,8 @@ import { COLORS, BREAKPOINTS } from "../constants";
 import { Link } from "react-router-dom";
 
 export default function Navbar({ height, setHeight }) {
+  const [mobileOpened, setMobileOpened] = useState(false);
+
   const Container = styled.nav`
     z-index: 2;
     display: flex;
@@ -102,7 +104,21 @@ export default function Navbar({ height, setHeight }) {
       flex-direction: row;
       @media (max-width: ${BREAKPOINTS.phablet}) {
         flex-direction: column;
-        display: none;
+        display: flex;
+        height: 0rem;
+        overflow: hidden;
+        transition: .25s ease-in-out all;
+      }
+      &.opened {
+        position: absolute;
+        top: 100%;
+        display: flex;
+        overflow: hidden;
+        height: max-content;
+        flex-direction: column;
+        background: ${COLORS.color3};
+        width: 100%;
+        transition: .25s ease-in-out all;
       }
     }
     .nav-link {
@@ -125,6 +141,9 @@ export default function Navbar({ height, setHeight }) {
         box-shadow: 0rem 0rem 0.25rem 0rem ${COLORS.primary};
         cursor: pointer;
       }
+      @media (max-width: ${BREAKPOINTS.phablet}) {
+        margin: 0;
+      }
     }
   `;
   return (
@@ -135,20 +154,14 @@ export default function Navbar({ height, setHeight }) {
         </Link>
         <div
           className="hamburger nav-link"
-          onClick={(e) => {
-            [].slice.call(e.target.children).forEach((child) => {
-              if (child) {
-                child.classList.toggle("opened");
-              }
-            });
-          }}
+          onClick={(e) => setMobileOpened(!mobileOpened)}
         >
-          <div className="line1" />
-          <div className="line2" />
-          <div className="line3" />
+          <div className={`line1 ${mobileOpened && "opened"}`} />
+          <div className={`line2 ${mobileOpened && "opened"}`} />
+          <div className={`line3 ${mobileOpened && "opened"}`} />
         </div>
       </div>
-      <div className="links-container">
+      <div className={`links-container ${mobileOpened && "opened"}`}>
         <a className="nav-link" href="/#about">
           About
         </a>
