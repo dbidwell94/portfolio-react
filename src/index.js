@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
-import NotFound from './components/notFound';
+import NotFound from "./components/notFound";
 import Home from "./components/home";
+import Projects from "./components/projects";
+import axios from "axios";
+import {URLS} from './components/constants';
 
 function App() {
   const [navbarHeight, setNavbarHeight] = useState(8);
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    axios.get(URLS.github.repoUrl)
+      .then(res => {
+        setRepos(res.data);
+      })
+  }, [])
+
   return (
     <Router>
       <Navbar height={navbarHeight} setHeight={setNavbarHeight} />
       <Switch>
         <Route path="/" exact>
           <Home navbarHeight={navbarHeight} />
+        </Route>
+        <Route path="/projects">
+          <Projects navbarHeight={navbarHeight} repos={repos} />
         </Route>
         <Route>
           <NotFound navbarHeight={navbarHeight} />

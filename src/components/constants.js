@@ -12,10 +12,25 @@ export const BREAKPOINTS = {
   phablet: "1000px",
 };
 
+export const URLS = {
+  github: {
+    username: "dbidwell94",
+    baseUrl: "https://api.github.com",
+    repoUrl: "https://api.github.com/users/dbidwell94/repos",
+  },
+};
+
 export const TECH = {
   javaScript: {
     name: "JavaScript",
-    frameworks: ["React.js", "Axios", "Redux.js", "Express.js", "Node.js", "ES6"],
+    frameworks: [
+      "React.js",
+      "Axios",
+      "Redux.js",
+      "Express.js",
+      "Node.js",
+      "ES6",
+    ],
   },
   web: {
     name: "Web-Dev",
@@ -23,7 +38,7 @@ export const TECH = {
   },
   python: {
     name: "Python",
-    frameworks: ["Django", "Django-Rest-Framework", "Beautiful-Soup","Pipenv"],
+    frameworks: ["Django", "Django-Rest-Framework", "Beautiful-Soup", "Pipenv"],
   },
   databases: {
     name: "Databases",
