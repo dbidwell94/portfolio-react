@@ -20,8 +20,8 @@ export default function About({ navbarHeight }) {
     .card {
       display: flex;
       flex-direction: row;
-      margin: 25%;
       background: rgba(0, 0, 0, 0.75);
+      margin: 0rem 25%;
       color: white;
       padding: 10rem;
       justify-content: center;
