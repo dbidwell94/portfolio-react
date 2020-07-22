@@ -21,7 +21,7 @@ export default function Navbar({ height, setHeight }) {
     height: ${height ? height : 8}rem;
     padding: 0rem 2rem;
     background: ${COLORS.color3};
-    box-shadow: 0rem -0.25rem 0.5rem 0rem ${COLORS.secondary};
+    box-shadow: 0rem 0.25rem 0.5rem 0rem black;
     @media (max-width: ${BREAKPOINTS.phablet}) {
       justify-content: flex-start;
       flex-direction: column;
@@ -109,7 +109,7 @@ export default function Navbar({ height, setHeight }) {
         display: flex;
         height: 0rem;
         overflow: hidden;
-        transition: .25s ease-in-out all;
+        transition: 0.25s ease-in-out all;
       }
       &.opened {
         position: absolute;
@@ -120,7 +120,7 @@ export default function Navbar({ height, setHeight }) {
         flex-direction: column;
         background: ${COLORS.color3};
         width: 100%;
-        transition: .25s ease-in-out all;
+        transition: 0.25s ease-in-out all;
       }
     }
     .nav-link {

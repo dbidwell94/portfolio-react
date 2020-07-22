@@ -107,6 +107,9 @@ export default function Hero({ navbarHeight }) {
     @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}) {
       height: 100vh;
     }
+    @media (max-width: ${BREAKPOINTS.phablet}){
+      padding: 0rem 1rem;
+    }
     color: ${COLORS.primary};
     .writer-title {
       display: flex;
