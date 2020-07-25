@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { COLORS, BREAKPOINTS } from "../constants";
 import { Link } from "react-router-dom";
 
 export default function Navbar({ height, setHeight }) {
-  const [mobileOpened, setMobileOpened] = useState(false);
+  const hamburger = useRef();
+  const mobileOpened = useRef(false);
 
   const Container = styled.nav`
     z-index: 2;
@@ -159,6 +160,7 @@ export default function Navbar({ height, setHeight }) {
         <div
           className="hamburger nav-link"
           onClick={(e) => setMobileOpened(!mobileOpened)}
+          ref={hamburger}
         >
           <div className={`line1 ${mobileOpened && "opened"}`} />
           <div className={`line2 ${mobileOpened && "opened"}`} />
