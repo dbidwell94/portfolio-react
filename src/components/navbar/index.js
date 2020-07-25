@@ -5,7 +5,16 @@ import { Link } from "react-router-dom";
 
 export default function Navbar({ height, setHeight }) {
   const hamburger = useRef();
-  const mobileOpened = useRef(false);
+  const linksContainer = useRef();
+
+  console.log(hamburger);
+
+  function setMobileOpened() {
+    Array.from(hamburger.current.children).forEach(child => {
+      child.classList.toggle('opened');
+    })
+    linksContainer.current.classList.toggle('opened');
+  }
 
   const Container = styled.nav`
     z-index: 2;
@@ -157,17 +166,13 @@ export default function Navbar({ height, setHeight }) {
         <Link to="/">
           <h1>Devin Bidwell</h1>
         </Link>
-        <div
-          className="hamburger nav-link"
-          onClick={(e) => setMobileOpened(!mobileOpened)}
-          ref={hamburger}
-        >
-          <div className={`line1 ${mobileOpened && "opened"}`} />
-          <div className={`line2 ${mobileOpened && "opened"}`} />
-          <div className={`line3 ${mobileOpened && "opened"}`} />
+        <div className="hamburger nav-link" onClick={setMobileOpened} ref={hamburger}>
+          <div className={'line1'}/>
+          <div className={'line2'}/>
+          <div className={'line3'}/>
         </div>
       </div>
-      <div className={`links-container ${mobileOpened && "opened"}`}>
+      <div className='links-container' ref={linksContainer}>
         <a className="nav-link" href="/#about">
           About
         </a>
