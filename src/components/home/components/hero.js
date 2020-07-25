@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import hero from "../../../assets/software.jpg";
 import profile from "../../../assets/Devin3.jpg";
@@ -10,28 +10,47 @@ function TypeWriter({}) {
     framework: 0,
   });
 
+  const timeouts = useRef([]);
+
   const currentTech = TECH[Object.keys(TECH)[keyFrameworkIndex.key]];
   const frameworkNameLength =
     currentTech.frameworks[keyFrameworkIndex.framework].length;
 
+  useEffect(() => {
+    return () => {
+      timeouts.current.forEach((number) => {
+        window.clearTimeout(number);
+      });
+    };
+  }, []);
+
   function setCurrentFramework() {
-    setTimeout(() => {
-      if (keyFrameworkIndex.framework + 1 > currentTech.frameworks.length - 1) {
-        if (keyFrameworkIndex.key + 1 > Object.keys(TECH).length - 1) {
-          setKeyFrameworkIndex({ key: 0, framework: 0 });
+    timeouts.current.forEach((number) => {
+      window.clearTimeout(number);
+    });
+    timeouts.current = [];
+    timeouts.current.push(
+      setTimeout(function () {
+        if (
+          keyFrameworkIndex.framework + 1 >
+          currentTech.frameworks.length - 1
+        ) {
+          if (keyFrameworkIndex.key + 1 > Object.keys(TECH).length - 1) {
+            setKeyFrameworkIndex({ key: 0, framework: 0 });
+          } else {
+            setKeyFrameworkIndex({
+              key: keyFrameworkIndex.key + 1,
+              framework: 0,
+            });
+          }
         } else {
           setKeyFrameworkIndex({
-            key: keyFrameworkIndex.key + 1,
-            framework: 0,
+            key: keyFrameworkIndex.key,
+            framework: keyFrameworkIndex.framework + 1,
           });
         }
-      } else {
-        setKeyFrameworkIndex({
-          key: keyFrameworkIndex.key,
-          framework: keyFrameworkIndex.framework + 1,
-        });
-      }
-    }, 1500);
+      }, 1500)
+    );
   }
 
   const cursorAnimation = keyframes`
@@ -107,7 +126,7 @@ export default function Hero({ navbarHeight }) {
     @media (orientation: landscape) and (max-width: ${BREAKPOINTS.phablet}) {
       height: 100vh;
     }
-    @media (max-width: ${BREAKPOINTS.phablet}){
+    @media (max-width: ${BREAKPOINTS.phablet}) {
       padding: 0rem 1rem;
     }
     color: ${COLORS.primary};
