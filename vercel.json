@@ -1,6 +1,5 @@
 {
-  "routes": [
-    { "src": "/.*", "dest": "/index.html" },
-    { "src": ".[jpg|css|js|map]", "dest": "/nope.html" }
+  "redirects": [
+    { "source": "/:route*", "destination": "/index.html", "permanent": true }
   ]
 }
