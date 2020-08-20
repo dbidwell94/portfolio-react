@@ -1,6 +1,6 @@
 {
   "routes": [
     { "src": "/.*", "dest": "/index.html" },
-    { "src": ".[jpg|css|js|map]", "dest": "/index.html" }
+    { "src": ".[jpg|css|js|map]", "dest": "/nope.html" }
   ]
 }
