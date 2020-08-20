@@ -1,5 +1,3 @@
 {
-  "redirects": [
-    { "source": "^((?!\\.).)*$", "destination": "/", "permanent": true }
-  ]
+  "routes": [{ "src": "^((?!\\.).)*$", "dest": "/index.html", "status": 200 }]
 }
