@@ -6,18 +6,17 @@ import NotFound from "./components/notFound";
 import Home from "./components/home";
 import Projects from "./components/projects";
 import axios from "axios";
-import {URLS} from './components/constants';
+import { URLS } from "./components/constants";
 
 function App() {
   const [navbarHeight, setNavbarHeight] = useState(8);
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    axios.get(URLS.github.repoUrl)
-      .then(res => {
-        setRepos(res.data);
-      })
-  }, [])
+    axios.get(URLS.github.repoUrl).then((res) => {
+      setRepos(res.data);
+    });
+  }, []);
 
   return (
     <Router>
