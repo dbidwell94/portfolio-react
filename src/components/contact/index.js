@@ -4,6 +4,7 @@ import { COLORS, BREAKPOINTS } from "../constants";
 import { useForm } from "react-hook-form";
 import { init as emailInit, send } from "emailjs-com";
 import ReCaptcha from "react-google-recaptcha";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -109,13 +110,14 @@ const Container = styled.div`
 
 export default function Contact(props) {
   const { register, errors, handleSubmit, reset } = useForm();
-  const { allowSend, setAllowSend } = useState(false);
+  const [allowSend, setAllowSend] = useState(false);
+  const { push } = useHistory();
 
   function onSubmit(values) {
-    emailInit("Devin Bidwell");
+    emailInit("user_khDSpOEJtjPH0re6i6zft");
     send("service_rwi4w77", "template_vifi3zb", { ...values })
       .then((res) => {
-        console.log(res);
+        push("/");
       })
       .catch((err) => {
         console.error(err);
@@ -160,8 +162,8 @@ export default function Contact(props) {
             className="captcha"
             sitekey="6Le1Z9UZAAAAAIOIEQjp8MSgftihFgYT2QW7ekRu"
             onChange={(token) => {
-              setAllowSend(true);
               console.log(token);
+              setAllowSend(true);
             }}
             onExpired={() => setAllowSend(false)}
             onErrored={() => setAllowSend(false)}
