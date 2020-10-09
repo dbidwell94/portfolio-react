@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { COLORS, BREAKPOINTS } from "../constants";
 import { useForm } from "react-hook-form";
-import { init as emailInit } from "emailjs-com";
+import { init as emailInit, send } from "emailjs-com";
 import ReCaptcha from "react-google-recaptcha";
 
 const Container = styled.div`
@@ -86,11 +86,18 @@ const Container = styled.div`
         color: white;
         margin: 1rem;
         border-radius: 1rem;
-        box-shadow: 0rem 0rem .125rem 0rem white;
-        transition: .125s ease-in-out all;
+        box-shadow: 0rem 0rem 0.125rem 0rem white;
+        transition: 0.125s ease-in-out all;
         cursor: pointer;
         &:hover {
-            box-shadow: 0rem 0rem .625rem 0rem white;
+          box-shadow: 0rem 0rem 0.625rem 0rem white;
+        }
+        &:disabled {
+          cursor: not-allowed;
+          box-shadow: 0rem 0rem 0.0125rem 0rem grey;
+          &:hover {
+            box-shadow: 0rem 0rem 0.0125rem 0rem grey;
+          }
         }
       }
       .captcha {
@@ -105,7 +112,14 @@ export default function Contact(props) {
   const { allowSend, setAllowSend } = useState(false);
 
   function onSubmit(values) {
-    emailInit("");
+    emailInit("Devin Bidwell");
+    send("service_rwi4w77", "template_vifi3zb", { ...values })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
     reset();
   }
 
@@ -149,9 +163,11 @@ export default function Contact(props) {
             onExpired={() => setAllowSend(false)}
             onErrored={() => setAllowSend(true)}
           />
-          <button disabled={!allowSend} type="submit">Submit</button>
+          <button disabled={!allowSend} type="submit">
+            Submit
+          </button>
         </form>
-      </section>    
+      </section>
     </Container>
   );
 }
