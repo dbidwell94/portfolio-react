@@ -16,9 +16,10 @@
     "rea": "0.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^6.9.2",
     "react-router-dom": "^5.2.0",
-    "styled-components": "^5.1.1",
-    "uuid": "^8.3.0"
+    "styled-components": "^5.2.0",
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"

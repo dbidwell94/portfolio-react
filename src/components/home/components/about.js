@@ -20,7 +20,7 @@ export default function About({ navbarHeight }) {
     .card {
       display: flex;
       flex-direction: row;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.5);
       margin: 0rem 25%;
       color: white;
       padding: 10rem;
@@ -66,9 +66,10 @@ export default function About({ navbarHeight }) {
           display: flex;
           justify-content: center;
           align-items: center;
+          object-fit: fill;
           width: 20rem;
           height: 20rem;
-          border-radius: 50%;
+          border-radius: 5rem;
         }
       }
     }

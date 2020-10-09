@@ -5,6 +5,7 @@ import Navbar from "./components/navbar";
 import NotFound from "./components/notFound";
 import Home from "./components/home";
 import Projects from "./components/projects";
+import Contact from './components/contact';
 import axios from "axios";
 import { URLS } from "./components/constants";
 
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/projects">
           <Projects navbarHeight={navbarHeight} repos={repos} />
+        </Route>
+        <Route path="/contact">
+          <Contact navbarHeight={navbarHeight}/>
         </Route>
         <Route>
           <NotFound navbarHeight={navbarHeight} />

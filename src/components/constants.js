@@ -32,6 +32,14 @@ export const TECH = {
       "ES6",
     ],
   },
+  typeScript: {
+    name: "TypeScript",
+    frameworks: [
+      "Redux",
+      "React",
+      "Redux-Thunk"
+    ]
+  },
   web: {
     name: "Web-Dev",
     frameworks: ["HTML5", "CSS3", "LESS"],
@@ -39,6 +47,16 @@ export const TECH = {
   python: {
     name: "Python",
     frameworks: ["Django", "Django-Rest-Framework", "Beautiful-Soup", "Pipenv"],
+  },
+  java: {
+    name: "Java",
+    frameworks: [
+      "Spring",
+      "Spring-Data-JPA",
+      "Hibernate",
+      "OAuth2",
+      "SwaggerUI"
+    ]
   },
   databases: {
     name: "Databases",

@@ -7,8 +7,6 @@ export default function Navbar({ height, setHeight }) {
   const hamburger = useRef();
   const linksContainer = useRef();
 
-  console.log(hamburger);
-
   function setMobileOpened() {
     Array.from(hamburger.current.children).forEach((child) => {
       child.classList.toggle("opened");

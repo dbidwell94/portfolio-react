@@ -233,7 +233,7 @@ export default function Hero({ navbarHeight }) {
         img {
           width: 25rem;
           height: 25rem;
-          border-radius: 50%;
+          border-radius: 25rem;
           @media (max-width: ${BREAKPOINTS.phablet}) {
             width: 20rem;
             height: 20rem;
