@@ -159,9 +159,12 @@ export default function Contact(props) {
           <ReCaptcha
             className="captcha"
             sitekey="6Le1Z9UZAAAAAIOIEQjp8MSgftihFgYT2QW7ekRu"
-            onChange={() => setAllowSend(true)}
+            onChange={(token) => {
+              setAllowSend(true);
+              console.log(token);
+            }}
             onExpired={() => setAllowSend(false)}
-            onErrored={() => setAllowSend(true)}
+            onErrored={() => setAllowSend(false)}
           />
           <button disabled={!allowSend} type="submit">
             Submit
