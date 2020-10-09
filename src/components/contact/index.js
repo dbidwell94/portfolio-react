@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { COLORS, BREAKPOINTS } from "../constants";
 import { useForm } from "react-hook-form";
+import { init as emailInit } from "emailjs-com";
+import ReCaptcha from "react-google-recaptcha";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - ${(props) => props.navbarHeight}rem);
+  min-height: calc(100vh - ${(props) => props.navbarHeight}rem);
+  padding: 2rem 0rem;
   margin-top: ${(props) => props.navbarHeight}rem;
   width: 100%;
   background: black;
@@ -47,9 +50,11 @@ const Container = styled.div`
       grid-gap: 1.5rem;
       font-size: 1.5rem;
       label,
-      input {
+      input,
+      button,
+      .captcha {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
       }
       label {
@@ -74,10 +79,22 @@ const Container = styled.div`
         color: white;
       }
       button {
-        grid-column: 1 / 3;
-        margin: 0 5rem;
+        grid-column: 2 / 3;
         border: none;
         background: transparent;
+        justify-content: center;
+        color: white;
+        margin: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0rem 0rem .125rem 0rem white;
+        transition: .125s ease-in-out all;
+        cursor: pointer;
+        &:hover {
+            box-shadow: 0rem 0rem .625rem 0rem white;
+        }
+      }
+      .captcha {
+        grid-column: 1 / 2;
       }
     }
   }
@@ -85,8 +102,10 @@ const Container = styled.div`
 
 export default function Contact(props) {
   const { register, errors, handleSubmit, reset } = useForm();
+  const { allowSend, setAllowSend } = useState(false);
 
   function onSubmit(values) {
+    emailInit("");
     reset();
   }
 
@@ -123,9 +142,16 @@ export default function Contact(props) {
             ref={register({ required: true })}
             placeholder="Message"
           />
-          <button type="submit">Submit</button>
+          <ReCaptcha
+            className="captcha"
+            sitekey="6Le1Z9UZAAAAAIOIEQjp8MSgftihFgYT2QW7ekRu"
+            onChange={() => setAllowSend(true)}
+            onExpired={() => setAllowSend(false)}
+            onErrored={() => setAllowSend(true)}
+          />
+          <button disabled={!allowSend} type="submit">Submit</button>
         </form>
-      </section>
+      </section>    
     </Container>
   );
 }
