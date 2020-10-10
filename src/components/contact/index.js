@@ -50,6 +50,10 @@ const Container = styled.div`
       grid-template-columns: 1fr, 3fr;
       grid-gap: 1.5rem;
       font-size: 1.5rem;
+      max-width: 100%;
+      @media (max-width: ${BREAKPOINTS.phablet}) {
+        grid-template-columns: 1fr;
+      }
       label,
       input,
       button,
@@ -57,6 +61,7 @@ const Container = styled.div`
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        width: 100%;
       }
       label {
         grid-column: 1 / 2;
@@ -67,6 +72,9 @@ const Container = styled.div`
         border: none;
         border-bottom: thin solid white;
         color: white;
+        @media (max-width: ${BREAKPOINTS.phablet}) {
+          grid-column: 1 / 2;
+        }
       }
       textarea {
         grid-column: 1 / 3;
@@ -78,6 +86,11 @@ const Container = styled.div`
         min-height: 25rem;
         border: none;
         color: white;
+        @media (max-width: ${BREAKPOINTS.phablet}) {
+          grid-column: 1 / 2;
+          min-width: unset;
+          max-width: 100%;
+        }
       }
       button {
         grid-column: 2 / 3;
@@ -100,9 +113,15 @@ const Container = styled.div`
             box-shadow: 0rem 0rem 0.0125rem 0rem grey;
           }
         }
+        @media (max-width: ${BREAKPOINTS.phablet}) {
+          grid-column: 1 / 2;
+        }
       }
       .captcha {
         grid-column: 1 / 2;
+        @media (max-width: ${BREAKPOINTS.phablet}) {
+          justify-content: center;
+        }
       }
     }
   }
