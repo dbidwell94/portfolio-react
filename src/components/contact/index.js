@@ -65,6 +65,9 @@ const Container = styled.div`
       }
       label {
         grid-column: 1 / 2;
+        @media (max-width: ${BREAKPOINTS.phablet}) {
+          display: none;
+        }
       }
       input {
         grid-column: 2 / 3;
