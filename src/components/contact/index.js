@@ -189,6 +189,7 @@ export default function Contact(props) {
             }}
             onExpired={() => setAllowSend(false)}
             onErrored={() => setAllowSend(false)}
+            theme="dark"
           />
           <button disabled={!allowSend} type="submit">
             Submit
