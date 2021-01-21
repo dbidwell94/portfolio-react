@@ -1,0 +1,18 @@
+{
+    "hero.tag": "Full Stack Developer with experience in ...",
+    "hero.javascript": "Javascript",
+    "hero.python": "Python",
+    "hero.csharp": "C#",
+    "hero.java": "Java",
+    "about.heading": "It's nice to meet you!",
+    "contact.heading": "Contact Me",
+    "contact.name": "Name",
+    "contact.email": "Email",
+    "contact.subject": "Subject",
+    "contact.message": "Message",
+    "forms.submit": "Submit",
+    "navbar.about": "About",
+    "navbar.Projects": "Projects",
+    "navbar.Contact": "Contact",
+    "options.language": "Language"
+}
