@@ -53,6 +53,10 @@ module.exports = (env: any, argsv: any): webpack.Configuration => {
         filename: "index.html",
         template: "./src/public/index.html",
         hash: true,
+        minify: 'auto',
+        scriptLoading: "defer",
+        xhtml: true,
+        title: "Devin's Portfolio"
       }),
     ],
     optimization: {
