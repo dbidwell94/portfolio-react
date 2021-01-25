@@ -26,7 +26,7 @@ type ITranslationStrings = keyof typeof enStrings;
 
     fs.writeFileSync(
       path.join(__dirname, "../src/static/translation", langTo, jsonFileName),
-      JSON.stringify(translatedObject, null, 2)
+      JSON.stringify(translatedObject, null, 4)
     );
   });
 })();
@@ -43,7 +43,6 @@ interface ITranslationResponse {
 }
 
 const googleApiKey = process.env.cloudApiKey;
-console.log(googleApiKey);
 
 async function getTranslation(
   stringsToTranslate: string[],
