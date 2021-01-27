@@ -2,6 +2,7 @@ import * as path from "path";
 import htmlPlugin from "html-webpack-plugin";
 import webpack from "webpack";
 import tsConfigPathPlugin from "tsconfig-paths-webpack-plugin";
+import eslint from "eslint-webpack-plugin";
 
 module.exports = (env: any, argsv: any): webpack.Configuration => {
   return {
@@ -53,11 +54,12 @@ module.exports = (env: any, argsv: any): webpack.Configuration => {
         filename: "index.html",
         template: "./src/public/index.html",
         hash: true,
-        minify: 'auto',
+        minify: "auto",
         scriptLoading: "defer",
         xhtml: true,
-        title: "Devin's Portfolio"
+        title: "Devin's Portfolio",
       }),
+      new eslint(),
     ],
     optimization: {
       splitChunks: {

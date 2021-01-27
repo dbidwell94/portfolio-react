@@ -1,4 +1,5 @@
 {
+    "document.title": "Portefeuille de Devin",
     "hero.tag": "Développeur Full Stack avec une expérience en ...",
     "hero.javascript": "Javascript",
     "hero.python": "Python",
@@ -14,5 +15,6 @@
     "navbar.about": "À propos",
     "navbar.Projects": "Projets",
     "navbar.Contact": "Contact",
-    "options.language": "Langue"
+    "options.language": "Langue",
+    "notfound.pageNotFound": "Désolé ... la page que vous recherchez n&#39;est pas trouvée ou n&#39;est pas encore disponible. Veuillez réessayer plus tard"
 }

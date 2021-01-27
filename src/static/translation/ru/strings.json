@@ -1,0 +1,20 @@
+{
+    "document.title": "Портфолио Девина",
+    "hero.tag": "Разработчик Full Stack с опытом работы в ...",
+    "hero.javascript": "Javascript",
+    "hero.python": "Python",
+    "hero.csharp": "C #",
+    "hero.java": "Ява",
+    "about.heading": "Приятно познакомиться!",
+    "contact.heading": "Свяжитесь со мной",
+    "contact.name": "имя",
+    "contact.email": "Эл. адрес",
+    "contact.subject": "Тема",
+    "contact.message": "Сообщение",
+    "forms.submit": "Разместить",
+    "navbar.about": "Около",
+    "navbar.Projects": "Проекты",
+    "navbar.Contact": "Связаться с нами",
+    "options.language": "Язык",
+    "notfound.pageNotFound": "Извините ... страница, которую вы ищете, либо не найдена, либо еще недоступна. Пожалуйста, повторите попытку позже"
+}

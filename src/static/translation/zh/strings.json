@@ -1,0 +1,20 @@
+{
+    "document.title": "Devin的图片组合",
+    "hero.tag": "具有丰富经验的全栈开发人员",
+    "hero.javascript": "Java脚本",
+    "hero.python": "蟒蛇",
+    "hero.csharp": "C＃",
+    "hero.java": "爪哇",
+    "about.heading": "很高兴认识你！",
+    "contact.heading": "联络我",
+    "contact.name": "名称",
+    "contact.email": "电子邮件",
+    "contact.subject": "学科",
+    "contact.message": "信息",
+    "forms.submit": "提交",
+    "navbar.about": "关于",
+    "navbar.Projects": "专案",
+    "navbar.Contact": "联系",
+    "options.language": "语言",
+    "notfound.pageNotFound": "抱歉...找不到您要查找的页面或尚不可用。请稍后再试"
+}

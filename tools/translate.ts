@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import path from "path";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import enStrings from "../src/static/translation/en/strings.json";
 import fs from "fs";
 
@@ -21,7 +21,7 @@ type ITranslationStrings = keyof typeof enStrings;
     const translatedObject = {} as any;
     const translations = await getTranslation(toTranslate, langTo);
     Object.keys(enStrings).forEach((key, index) => {
-        translatedObject[key] = translations[index].translatedText;
+      translatedObject[key] = translations[index].translatedText;
     });
 
     fs.writeFileSync(
@@ -51,6 +51,7 @@ async function getTranslation(
   if (!googleApiKey) {
     throw new Error("Need a google cloud api key for this function to work");
   }
+  console.log(`translating to ${languageTo}`);
   const postData = { q: stringsToTranslate };
   const translationResult = await axios.post<ITranslationResponse>(
     `https://translation.googleapis.com/language/translate/v2?target=${languageTo}&key=${googleApiKey}`,

@@ -1,0 +1,93 @@
+{
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "jsx": true,
+      "useJSXTextNode": true
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest": true,
+      "node": true
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "prettier",
+      "markdown",
+      "json"
+    ],
+    "rules": {
+      "camelcase": 0,
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "complexity": [
+        "warn",
+        10
+      ],
+      "eqeqeq": "warn",
+      "max-statements": [
+        "warn",
+        25
+      ],
+      "no-case-declarations": 0,
+      "import/default": [
+        "off"
+      ],
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/explicit-member-accessibility": 0,
+      "@typescript-eslint/naming-convention": [
+        "warn",
+        {
+          "selector": "interface",
+          "format": [
+            "PascalCase"
+          ],
+          "custom": {
+            "regex": "^I[A-Z]",
+            "match": true
+          }
+        }
+      ],
+      "@typescript-eslint/no-non-null-assertion": 0,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/no-object-literal-type-assertion": 0,
+      "@typescript-eslint/indent": [
+        "error",
+        4
+      ],
+      "@typescript-eslint/array-type": 0,
+      "@typescript-eslint/no-use-before-define": 0,
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "args": "none",
+          "ignoreRestSiblings": false,
+          "vars": "all"
+        }
+      ],
+      "@typescript-eslint/ban-types": [
+        "error",
+        {
+          "extendDefaults": true,
+          "types": {
+            "{}": false
+          }
+        }
+      ]
+    }
+  }

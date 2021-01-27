@@ -1,0 +1,20 @@
+{
+    "document.title": "Devins Portfolio",
+    "hero.tag": "Full Stack Entwickler mit Erfahrung in ...",
+    "hero.javascript": "Javascript",
+    "hero.python": "Python",
+    "hero.csharp": "C #",
+    "hero.java": "Java",
+    "about.heading": "Nett, Sie kennenzulernen!",
+    "contact.heading": "Kontaktiere mich",
+    "contact.name": "Name",
+    "contact.email": "Email",
+    "contact.subject": "Gegenstand",
+    "contact.message": "Botschaft",
+    "forms.submit": "einreichen",
+    "navbar.about": "Über",
+    "navbar.Projects": "Projekte",
+    "navbar.Contact": "Kontakt",
+    "options.language": "Sprache",
+    "notfound.pageNotFound": "Es tut mir leid ... die Seite, nach der Sie suchen, wurde entweder nicht gefunden oder ist noch nicht verfügbar. Bitte versuchen Sie es später noch einmal"
+}

@@ -1,4 +1,5 @@
 {
+    "document.title": "Devin's Portfolio",
     "hero.tag": "Full Stack Developer with experience in ...",
     "hero.javascript": "Javascript",
     "hero.python": "Python",
@@ -14,5 +15,6 @@
     "navbar.about": "About",
     "navbar.Projects": "Projects",
     "navbar.Contact": "Contact",
-    "options.language": "Language"
+    "options.language": "Language",
+    "notfound.pageNotFound": "I'm sorry... the page you are looking for either isn't found or isn't available yet. Please try again later"
 }
