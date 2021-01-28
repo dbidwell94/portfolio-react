@@ -16,7 +16,7 @@ const Container = styled.div`
 
 export default function () {
   return (
-    <FullPage>
+    <FullPage firstElement>
       <Container>
         <h1>{translate.get("notfound.pageNotFound")}</h1>
       </Container>

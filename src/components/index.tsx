@@ -4,12 +4,14 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "components/Navbar";
 import Hero from "sections/homePage/Hero";
 import NotFound from "sections/notFound";
-import translate from 'client-tools/translate';
+import Footer from 'components/Footer';
+import translate from "client-tools/translate";
 
 const Container = styled.div`
+  z-index: -2;
 `;
 
-document.title = translate.get('document.title');
+document.title = translate.get("document.title");
 
 export default function App() {
   return (
@@ -24,6 +26,7 @@ export default function App() {
             <NotFound />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </Container>
   );

@@ -14,7 +14,10 @@ export default function (
 ): IThemeStore {
   switch (action.type) {
     case ThemeActionTypes.SET_NAVBAR_HEIGHT:
-      return { ...state, navbarHeight: action.payload };
+      if (typeof action.type === "number") {
+        return { ...state, navbarHeight: action.payload };
+      }
+      return state;
 
     default:
       return state;

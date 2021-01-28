@@ -1,11 +1,12 @@
 import en from "src/static/translation/en/strings.json";
 import es from "src/static/translation/es/strings.json";
 import fr from "src/static/translation/fr/strings.json";
-import de from 'src/static/translation/de/strings.json';
-import zh from 'src/static/translation/zh/strings.json';
-import ru from 'src/static/translation/ru/strings.json';
-import ko from 'src/static/translation/ko/strings.json';
+import de from "src/static/translation/de/strings.json";
+import zh from "src/static/translation/zh/strings.json";
+import ru from "src/static/translation/ru/strings.json";
+import ko from "src/static/translation/ko/strings.json";
 import { decode } from "html-entities";
+import cookie from "js-cookie";
 
 export type ITranslationStrings = keyof typeof en;
 
@@ -55,6 +56,19 @@ export function getBrowserLanguages(): ITranslationKeys[] {
   return languages;
 }
 
-const translateClass = new Translate(getBrowserLanguages()[0] || "en");
+export function getBrowserLanguageFromCookie(): ITranslationKeys | null {
+  const langKey = cookie.get("lang");
+  if (!langKey) {
+    return null;
+  }
+
+  const toReturn = Object.keys(strings).filter((key) => key === langKey);
+
+  return (toReturn as any) as ITranslationKeys;
+}
+
+const translateClass = new Translate(
+  getBrowserLanguageFromCookie() || getBrowserLanguages()[0] || "en"
+);
 
 export default translateClass;

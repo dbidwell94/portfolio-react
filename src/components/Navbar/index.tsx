@@ -1,7 +1,7 @@
 import React from "react";
 import translate from "client-tools/translate";
-import styled from "styled-components";
-import StyledNavLink, { IStyledLinkProps } from "components/shared/StyledLink";
+import styled from "components/shared/globalTheme";
+import StyledNavLink, { StyledCta } from "components/shared/StyledLink";
 import { useSelector } from "src/state";
 
 interface INavbarTheme {
@@ -9,34 +9,24 @@ interface INavbarTheme {
 }
 
 const Container = styled.nav<INavbarTheme>`
+  z-index: 5;
   display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
   height: ${(props) => props.navbarHeight}rem;
-  background: black;
-  color: whitesmoke;
+  background: ${({ theme }) => theme.navbar.background};
+  color: ${({ theme }) => theme.navbar.textColor};
   flex-direction: row;
   align-items: center;
   padding: 2rem;
   justify-content: space-between;
+  filter: drop-shadow(0rem 0.25rem 0.5rem grey);
   div.links {
     display: flex;
     flex-direction: row;
-    div {
-      margin: 0rem 0.5rem;
-    }
   }
 `;
-
-const generalLinkTheme: Omit<IStyledLinkProps, "to"> = {
-  backgroundColor: "whitesmoke",
-  textColor: "black",
-  padding: 0.375,
-};
-
-const ctaLinkTheme: Omit<IStyledLinkProps, "to"> = {
-  backgroundColor: "gold",
-  textColor: "black",
-  padding: 0.375,
-};
 
 export default function Navbar() {
   const { navbarHeight } = useSelector((state) => state.themeReducer);
@@ -47,15 +37,13 @@ export default function Navbar() {
         <h1>Devin Bidwell</h1>
       </div>
       <div className="links">
-        <StyledNavLink to="/about" {...generalLinkTheme}>
+        <StyledNavLink to="/about">
           {translate.get("navbar.about")}
         </StyledNavLink>
-        <StyledNavLink to="/projects" {...generalLinkTheme}>
+        <StyledNavLink to="/projects">
           {translate.get("navbar.Projects")}
         </StyledNavLink>
-        <StyledNavLink to="/contact" {...ctaLinkTheme}>
-          {translate.get("navbar.Contact")}
-        </StyledNavLink>
+        <StyledCta to="/contact">{translate.get("navbar.Contact")}</StyledCta>
       </div>
     </Container>
   );

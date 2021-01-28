@@ -1,21 +1,24 @@
 import {
   ILocalAction,
   localActionTypes,
-  ILocalStore,
+  ILocaleStore,
 } from "src/state/localeReducer/types";
 import { getBrowserLanguages } from "client-tools/translate";
 
-const initialState: ILocalStore = {
+const initialState: ILocaleStore = {
   currentLanguage: getBrowserLanguages()[0] || "en",
 };
 
 export default function (
   state = initialState,
   action: ILocalAction
-): ILocalStore {
+): ILocaleStore {
   switch (action.type) {
     case localActionTypes.SET_LANGUAGE:
-      return { ...state, currentLanguage: action.payload };
+      if (typeof action.type === "string") {
+        return { ...state, currentLanguage: action.payload };
+      }
+      return state;
 
     default:
       return state;

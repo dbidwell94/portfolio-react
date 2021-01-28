@@ -1,37 +1,33 @@
-import React from "react";
-import { NavLink, NavLinkProps } from "react-router-dom";
-import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+import styled from "components/shared/globalTheme";
 
-export type IStyledLinkProps = NavLinkProps & IContainerProps;
-
-type IContainerProps = {
-  backgroundColor?: string;
-  textColor?: string;
-  padding?: number;
-};
-
-const Container = styled.div<IContainerProps>`
-  background: ${(props) =>
-    props.backgroundColor ? props.backgroundColor : "white"};
-
-  padding: ${(props) => (props.padding ? props.padding : 0.125)}rem;
+const StyledLink = styled(NavLink)`
+  transition: 0.0625s ease-in-out all;
+  background: none;
+  padding: ${({ theme }) =>
+    `${theme.link.padding.y}rem ${theme.link.padding.x}rem`};
   border-radius: 0.25rem;
-  a {
-    text-decoration: none;
-    color: ${(props) => (props.textColor ? props.textColor : "black")};
+  margin: ${({ theme }) =>
+    `${theme.link.margin.y}rem ${theme.link.margin.x}rem`};
+  border: thin solid ${({ theme }) => theme.link.background};
+  text-decoration: none;
+  color: ${({ theme }) => theme.link.background};
+  &:hover {
+    background: white;
+    border: thin solid white;
+    color: ${({ theme }) => theme.link.textColor};
   }
 `;
 
-export default function (props: IStyledLinkProps) {
-  const { backgroundColor, textColor, padding, ...navLinkProps } = props;
+export const StyledCta = styled(StyledLink)`
+  border: thin solid goldenrod;
+  background: none;
+  color: white;
+  &:hover {
+    border: thin solid gold;
+    background: gold;
+    color: black;
+  }
+`;
 
-  return (
-    <Container
-      backgroundColor={backgroundColor}
-      textColor={textColor}
-      padding={padding}
-    >
-      <NavLink {...navLinkProps} />
-    </Container>
-  );
-}
+export default StyledLink;

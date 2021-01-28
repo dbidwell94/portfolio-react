@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import FullPage from "components/shared/FullPageView";
+import Model from './Model';
+import Background from './Background';
 
 const Container = styled.div`
   height: 100%;
@@ -8,14 +10,18 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 export default function () {
   return (
-    <FullPage>
-      <Container>
-        <h1>Hello World</h1>
-      </Container>
-    </FullPage>
+    <>
+      <FullPage firstElement>
+        <Container>
+          <Model />
+          <Background />
+        </Container>
+      </FullPage>
+    </>
   );
 }

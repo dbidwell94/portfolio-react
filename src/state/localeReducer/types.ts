@@ -2,7 +2,7 @@ import { Action } from "redux";
 import { ITranslationKeys } from "client-tools/translate";
 
 export enum localActionTypes {
-  SET_LANGUAGE,
+  SET_LANGUAGE = "SET_LANGUAGE",
 }
 
 export interface ILocalAction extends Action {
@@ -10,6 +10,6 @@ export interface ILocalAction extends Action {
   payload: ITranslationKeys;
 }
 
-export interface ILocalStore {
+export interface ILocaleStore {
     currentLanguage: ITranslationKeys
 }

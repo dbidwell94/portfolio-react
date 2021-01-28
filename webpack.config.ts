@@ -38,6 +38,16 @@ module.exports = (env: any, argsv: any): webpack.Configuration => {
           exclude: /node_modules/,
           use: [{ loader: "html-loader" }],
         },
+        {
+          test: /\.(jpe?g|gif|png|svg)$/i,
+          exclude: /node_modules/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: 'static/images/[hash].[ext]'
+            }
+          }
+        },
       ],
     },
     output: {
