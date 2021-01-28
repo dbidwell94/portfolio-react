@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "components/shared/globalTheme";
 import { useSelector, useDispatch } from "src/state";
-import translate, { ITranslationKeys } from "client-tools/translate";
+import { ITranslationKeys } from "client-tools/translate";
 import { setLanguage } from "src/state/localeReducer/localeActions";
+import useTranslate from "client-tools/useTranslate";
 
 interface IFooterProps {
   navbarHeight: number;
@@ -41,6 +42,8 @@ export default function () {
   const { navbarHeight } = useSelector((state) => state.themeReducer);
   const { currentLanguage } = useSelector((state) => state.localeReducer);
 
+  const translate = useTranslate();
+
   const dispatch = useDispatch();
 
   function handleLanguageChange(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -58,11 +61,11 @@ export default function () {
     <Container navbarHeight={navbarHeight}>
       <p>&copy;2021 Devin Bidwell</p>
       <section className="links">
-        <label htmlFor="languages">Language:</label>
+        <label htmlFor="languages">{translate.get('options.language')}</label>
         <select
           name="languages"
           id="languages"
-          defaultValue={translate.currentLanguage}
+          defaultValue={languages[currentLanguage]}
           onChange={handleLanguageChange}
         >
           {Object.keys(languages).map((language) => {

@@ -5,15 +5,19 @@ import Navbar from "components/Navbar";
 import Hero from "sections/homePage/Hero";
 import NotFound from "sections/notFound";
 import Footer from 'components/Footer';
-import translate from "client-tools/translate";
+import useTranslate from "client-tools/useTranslate";
 
 const Container = styled.div`
   z-index: -2;
 `;
 
-document.title = translate.get("document.title");
 
 export default function App() {
+
+  const translate = useTranslate();
+  document.title = translate.get("document.title");
+
+
   return (
     <Container>
       <Router>

@@ -42,11 +42,11 @@ module.exports = (env: any, argsv: any): webpack.Configuration => {
           test: /\.(jpe?g|gif|png|svg)$/i,
           exclude: /node_modules/,
           use: {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: 'static/images/[hash].[ext]'
-            }
-          }
+              name: "static/images/[hash].[ext]",
+            },
+          },
         },
       ],
     },
@@ -71,25 +71,28 @@ module.exports = (env: any, argsv: any): webpack.Configuration => {
       }),
       new eslint(),
     ],
-    optimization: {
-      splitChunks: {
-        chunks: "async",
-        minSize: 10000,
-        maxSize: 100000,
-        maxAsyncRequests: 30,
-        cacheGroups: {
-          defaultVendors: {
-            test: /[\\/]node_modules[\\/]/,
-            priority: -10,
-            reuseExistingChunk: true,
-          },
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-          },
-        },
-      },
-    },
+    optimization:
+      argsv.mode === "production"
+        ? {
+            splitChunks: {
+              chunks: "async",
+              minSize: 10000,
+              maxSize: 100000,
+              maxAsyncRequests: 30,
+              cacheGroups: {
+                defaultVendors: {
+                  test: /[\\/]node_modules[\\/]/,
+                  priority: -10,
+                  reuseExistingChunk: true,
+                },
+                default: {
+                  minChunks: 2,
+                  priority: -20,
+                  reuseExistingChunk: true,
+                },
+              },
+            },
+          }
+        : {},
   };
 };

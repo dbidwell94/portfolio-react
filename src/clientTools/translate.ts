@@ -7,17 +7,17 @@ import ru from "src/static/translation/ru/strings.json";
 import ko from "src/static/translation/ko/strings.json";
 import { decode } from "html-entities";
 import cookie from "js-cookie";
+import React, {useState} from 'react';
 
 export type ITranslationStrings = keyof typeof en;
 
-const strings = { de, en, es, fr, ko, ru, zh };
-
 const htmlEntityRegex = /(&#\S+;)/gm;
 
-export type ITranslationKeys = keyof typeof strings;
+export type ITranslationKeys = keyof typeof Translate.translationStrings;
 
-class Translate {
+export default class Translate {
   private __currentLanguage: ITranslationKeys;
+  static readonly translationStrings = { de, en, es, fr, ko, ru, zh };
 
   constructor(languageCode: ITranslationKeys) {
     this.__currentLanguage = languageCode;
@@ -31,7 +31,8 @@ class Translate {
     if (!(toTranslate in en)) {
       return toTranslate;
     }
-    let translatedString = strings[this.__currentLanguage][toTranslate];
+    let translatedString =
+      Translate.translationStrings[this.__currentLanguage][toTranslate];
     const matches = translatedString.match(htmlEntityRegex);
     if (!matches || matches.length < 1) {
       return translatedString;
@@ -42,33 +43,29 @@ class Translate {
     return translatedString;
   }
 
-  changeLanguage(toChangeTo: ITranslationKeys): void {
-    if (toChangeTo in strings) {
-      this.__currentLanguage = toChangeTo;
+  static getBrowserLanguages(): ITranslationKeys[] {
+    const languages: ITranslationKeys[] = navigator.languages
+      .map((language) => language.substr(0, 2))
+      .filter(
+        (language) => language in Translate.translationStrings
+      ) as ITranslationKeys[];
+    return languages;
+  }
+
+  static getBrowserLanguageFromCookie(): ITranslationKeys | null {
+    const langKey = cookie.get("lang");
+    if (!langKey) {
+      return null;
     }
-  }
-}
 
-export function getBrowserLanguages(): ITranslationKeys[] {
-  const languages: ITranslationKeys[] = navigator.languages
-    .map((language) => language.substr(0, 2))
-    .filter((language) => language in strings) as ITranslationKeys[];
-  return languages;
-}
+    const toReturn = Object.keys(Translate.translationStrings).filter(
+      (key) => key === langKey
+    );
 
-export function getBrowserLanguageFromCookie(): ITranslationKeys | null {
-  const langKey = cookie.get("lang");
-  if (!langKey) {
-    return null;
+    return (toReturn as any) as ITranslationKeys;
   }
 
-  const toReturn = Object.keys(strings).filter((key) => key === langKey);
-
-  return (toReturn as any) as ITranslationKeys;
+  get strings() {
+    return Translate.translationStrings;
+  }
 }
-
-const translateClass = new Translate(
-  getBrowserLanguageFromCookie() || getBrowserLanguages()[0] || "en"
-);
-
-export default translateClass;

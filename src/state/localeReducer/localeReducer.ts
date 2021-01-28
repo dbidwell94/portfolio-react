@@ -3,10 +3,13 @@ import {
   localActionTypes,
   ILocaleStore,
 } from "src/state/localeReducer/types";
-import { getBrowserLanguages } from "client-tools/translate";
+import translate from "client-tools/translate";
 
 const initialState: ILocaleStore = {
-  currentLanguage: getBrowserLanguages()[0] || "en",
+  currentLanguage:
+    translate.getBrowserLanguageFromCookie() ||
+    translate.getBrowserLanguages()[0] ||
+    "en",
 };
 
 export default function (

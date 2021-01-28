@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled, { breakpoints } from "components/shared/globalTheme";
-import translate from "client-tools/translate";
 import heroImg from "../../static/images/headshot.jpg";
+import useTranslate from "client-tools/useTranslate";
 
 const Container = styled.section`
   background: rgba(0, 0, 0, 0.25);
@@ -30,6 +30,9 @@ const Container = styled.section`
 `;
 
 export default function () {
+
+  const translate = useTranslate();
+
   return (
     <Container>
       <img src={heroImg} />

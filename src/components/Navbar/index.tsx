@@ -1,5 +1,5 @@
 import React from "react";
-import translate from "client-tools/translate";
+import useTranslate from "client-tools/useTranslate";
 import styled from "components/shared/globalTheme";
 import StyledNavLink, { StyledCta } from "components/shared/StyledLink";
 import { useSelector } from "src/state";
@@ -30,6 +30,7 @@ const Container = styled.nav<INavbarTheme>`
 
 export default function Navbar() {
   const { navbarHeight } = useSelector((state) => state.themeReducer);
+  const translate = useTranslate();
 
   return (
     <Container navbarHeight={navbarHeight}>
@@ -43,7 +44,9 @@ export default function Navbar() {
         <StyledNavLink to="/projects">
           {translate.get("navbar.Projects")}
         </StyledNavLink>
-        <StyledCta to="/contact">{translate.get("navbar.Contact")}</StyledCta>
+        <StyledCta to="/contact">
+          {translate.get("navbar.Contact")}
+        </StyledCta>
       </div>
     </Container>
   );
