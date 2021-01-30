@@ -19,7 +19,8 @@ const languages: Record<ITranslationKeys, string> = {
   zh: "Chinese",
 };
 
-const Container = styled.footer<IFooterProps>`
+const Container = styled.div<IFooterProps>`
+  z-index: 5;
   height: ${({ navbarHeight }) => navbarHeight}rem;
   background: ${({ theme }) => theme.navbar.background};
   color: ${({ theme }) => theme.navbar.textColor};
@@ -27,6 +28,9 @@ const Container = styled.footer<IFooterProps>`
   justify-content: space-evenly;
   align-items: center;
   padding: 0rem 2rem;
+  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  position: absolute;
+  width: 100%;
   .links {
     display: flex;
     justify-content: center;

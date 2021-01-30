@@ -7,9 +7,7 @@ const {
   keyframes,
 } = (styledComponents as any) as ThemedStyledComponentsModule<ITheme>;
 
-export enum breakpoints {
-    
-}
+export enum breakpoints {}
 
 interface IVectorSize {
   x: number;
@@ -30,6 +28,8 @@ export interface ITheme {
   global: {
     background: string;
     textColor: string;
+    boxShadow: string;
+    boxShadowHighlight: string;
   };
 }
 
@@ -47,6 +47,8 @@ export const theme: ITheme = {
   global: {
     background: "whitesmoke",
     textColor: "black",
+    boxShadow: "0rem 0rem 1rem .5rem grey;",
+    boxShadowHighlight: "0rem 0.5rem 1rem -0.25rem black",
   },
 };
 

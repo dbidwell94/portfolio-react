@@ -3,6 +3,7 @@ import useTranslate from "client-tools/useTranslate";
 import styled from "components/shared/globalTheme";
 import StyledNavLink, { StyledCta } from "components/shared/StyledLink";
 import { useSelector } from "src/state";
+import { NavLink } from "react-router-dom";
 
 interface INavbarTheme {
   navbarHeight: number;
@@ -21,11 +22,16 @@ const Container = styled.nav<INavbarTheme>`
   align-items: center;
   padding: 2rem;
   justify-content: space-between;
-  filter: drop-shadow(0rem 0.25rem 0.5rem grey);
+  box-shadow: ${({ theme }) => theme.global.boxShadow};
   div.links {
     display: flex;
     flex-direction: row;
   }
+`;
+
+const TitleLink = styled(NavLink)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.navbar.textColor};
 `;
 
 export default function Navbar() {
@@ -35,7 +41,9 @@ export default function Navbar() {
   return (
     <Container navbarHeight={navbarHeight}>
       <div className="title">
-        <h1>Devin Bidwell</h1>
+        <TitleLink to="/">
+          <h1>Devin Bidwell</h1>
+        </TitleLink>
       </div>
       <div className="links">
         <StyledNavLink to="/about">
@@ -44,9 +52,7 @@ export default function Navbar() {
         <StyledNavLink to="/projects">
           {translate.get("navbar.Projects")}
         </StyledNavLink>
-        <StyledCta to="/contact">
-          {translate.get("navbar.Contact")}
-        </StyledCta>
+        <StyledCta to="/contact">{translate.get("navbar.Contact")}</StyledCta>
       </div>
     </Container>
   );

@@ -8,7 +8,7 @@ import Footer from 'components/Footer';
 import useTranslate from "client-tools/useTranslate";
 
 const Container = styled.div`
-  z-index: -2;
+  z-index: 1;
 `;
 
 

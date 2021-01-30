@@ -16,9 +16,9 @@ const Container = styled.section`
   justify-content: flex-start;
   align-items: center;
   border-radius: 2rem;
-  box-shadow: 0rem 0.5rem 1rem -0.25rem black;
+  box-shadow: ${({ theme }) => theme.global.boxShadowHighlight};
   z-index: 3;
-  color: whitesmoke;
+  color: black;
   img {
     width: 20rem;
     height: 20rem;
@@ -30,7 +30,6 @@ const Container = styled.section`
 `;
 
 export default function () {
-
   const translate = useTranslate();
 
   return (
