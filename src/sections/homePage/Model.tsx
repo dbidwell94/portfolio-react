@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styled, { breakpoints } from "components/shared/globalTheme";
+import React from "react";
+import styled from "components/shared/globalTheme";
 import heroImg from "../../static/images/headshot.jpg";
 import useTranslate from "client-tools/useTranslate";
 
 const Container = styled.section`
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.5);
   padding: 2rem;
   width: 60rem;
   max-height: 90%;

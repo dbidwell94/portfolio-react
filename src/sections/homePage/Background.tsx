@@ -6,9 +6,9 @@ const Container = styled.div`
   height: 100%;
   position: absolute;
   background: whitesmoke;
-  z-index: 1;
+  z-index: 0;
   svg {
-    filter: blur(0.15rem);
+    filter: blur(1rem);
     position: relative;
   }
 `;
@@ -76,8 +76,6 @@ export default function Background() {
     height: 500,
   });
 
-  const circles = useRef<ICircleAndRef[]>([]);
-
   const [circleLocation, setCircleLocation] = useState<ICircleLocation>({
     cy: 0,
     cx: 0,
@@ -116,16 +114,16 @@ export default function Background() {
       const cy = parseFloat(circleRef.getAttributeNS(null, "cy") as string);
       const { width, height } = containerRef.current.getBoundingClientRect();
 
-      if (cx > width - 10) {
+      if (cx > width - 20) {
         invert.current = { ...invert.current, cx: true };
       }
-      if (cx < 10) {
+      if (cx < 20) {
         invert.current = { ...invert.current, cx: false };
       }
-      if (cy > height - 10) {
+      if (cy > height - 20) {
         invert.current = { ...invert.current, cy: true };
       }
-      if (cy < 10) {
+      if (cy < 20) {
         invert.current = { ...invert.current, cy: false };
       }
 
@@ -153,7 +151,7 @@ export default function Background() {
         <circle
           cx={circleLocation.cx}
           cy={circleLocation.cy}
-          r="10"
+          r="20"
           stroke="rgb(75, 75, 75)"
           fill="rgb(75, 75, 75)"
           ref={circleRef}
